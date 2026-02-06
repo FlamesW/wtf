@@ -1,26 +1,42 @@
--- // Flameh [Loader.lua]
-if not game:IsLoaded() then
-    game.Loaded:Wait();
-end
+-- // This script is protected by license: https://github.com/FlamesW/wtf/blob/main/LICENSE.md
+---------------------------------------------------------------------------------------------------
+--  ______ _                   __          __
+-- |  ____| |                  \ \        / /
+-- | |__  | | __ _ _ __ ___   __\ \  /\  / /_ _ _ __ ___
+-- |  __| | |/ _` | '_ ` _ \ / _ \ \/  \/ / _` | '__/ _ \
+-- | |    | | (_| | | | | | |  __/\  /\  / (_| | | |  __/
+-- |_|    |_|\__,_|_| |_| |_|\___| \/  \/ \__,_|_|  \___|
+---------------------------------------------------------------------------------------------------
+getgenv().CopyrightHolder = "FlamesW©";
 
 local cloneref = (cloneref or clonereference or function(instance: any)
     return instance
 end)
 
-local Maintenance = false
+ -- // Variables
 local Players: Players = cloneref(game:GetService("Players"))
 local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait();
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
 local CCamera = workspace.CurrentCamera;
+local InMaintenance = false
 
+-- // Services
 local Services = {
     VirtualUser = cloneref(game:GetService("VirtualUser"));
+	CoreGui = cloneref(game:GetService("CoreGui"));
 	Tween = game:GetService("TweenService");
 }
 
--- // Maintenance
-if Maintenance == true then
-    LocalPlayer:Kick("Flameh is temporarily closed~");
+-- // IsLoaded() yes
+if not game:IsLoaded() then
+    local Unloaded = Instance.new("Message"); Unloaded.Parent = Services.CoreGui;
+	Unloaded.Text = "Flameh is waiting for the game to load~";
+	game.Loaded:Wait(); NotLoaded:Destroy();
+end
+
+-- // Maintenance Checker
+if InMaintenance == true then
+    LocalPlayer:Kick("Flameh is temporarily closed, Try again later~");
     return
 end
 
