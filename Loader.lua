@@ -88,7 +88,9 @@ end)
 shared.Loader = {}
 
 shared.Loader.Files = {
-    ["BG"] = { File = "BG/Main.lua", CreatorId = 0 },
+    ["BG"] = { File = "BG/File.lua", CreatorId = 0 },
+	["World Of Stands"] = { File = "WOS/File.lua", CreatorId = 6069796 },
+
 }
 
 -- // Anti Idle Support
