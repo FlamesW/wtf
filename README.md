@@ -156,13 +156,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FlamesW/wtf/main/Load
 
 ### 🔌 Connections
 
-* Auto rejoin / server hop / leave on disconnect
+* Options: Auto rejoin / server hop / leave
 * Auto actions when:
 
+  * Disconnected from game
   * Snitched by players (**patched**)
   * Moderator joins
-  * Staff joins
-  * Developer joins
 
 ---
 
