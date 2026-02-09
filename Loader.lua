@@ -22,14 +22,12 @@ end)
 local Players: Players = cloneref(game:GetService("Players"))
 local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait();
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
-local CCamera = workspace.CurrentCamera;
 local InMaintenance = false
 
 -- // Services
 local Services = {
     VirtualUser = cloneref(game:GetService("VirtualUser"));
 	CoreGui = cloneref(game:GetService("CoreGui"));
-	Tween = game:GetService("TweenService");
 }
 
 -- // IsLoaded() yes
@@ -50,40 +48,6 @@ if Library and Library.InstanceExist and Library:InstanceExist() then
     Library:Notify("Flameh is already loaded~", 5);
     return
 end
-
--- // Drug Visuals
-local HeartBeat = "rbxassetid://7188240609";
-
-task.spawn(function()
-	local Sound = Instance.new("Sound");
-	Sound.Name = "Sound";Sound.SoundId = HeartBeat;Sound.Volume = 10;
-	Sound.Looped = false;Sound.Archivable = false;Sound.Parent = game.Workspace;Sound:Play();
-	
-	local Blur = Instance.new("BlurEffect");
-	Blur.Size = 0;
-	Blur.Parent = game.Lighting;
-	
-	local Drugs = Instance.new("ColorCorrectionEffect");
-	Drugs.Parent = game.Lighting;
-	local Info = TweenInfo.new(0.95,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut);
-	
-	local function Tween(Inst,Prop)
-	    Services.Tween:Create(Inst,Info,Prop):Play();
-	end
-	
-	local CurrentFov = CCamera.FieldOfView;
-	
-	Tween(CCamera,{FieldOfView = 150});
-	Tween(Blur,{Size = 10});
-	Tween(Drugs,{Saturation = 5});
-	
-	task.wait(1.1);
-	Tween(CCamera,{FieldOfView = CurrentFov});
-	Tween(Blur,{Size = 0});
-	Tween(Drugs,{Saturation = 0});
-	task.wait(1.1);
-	Blur:Destroy();Drugs:Destroy();
-end)
 
 shared.Loader = {}
 
