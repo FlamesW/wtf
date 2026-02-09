@@ -10,6 +10,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FlamesW/wtf/main/Load
 getgenv().Auto_Show = true -- // Shows UI Open on load.
 ```
 ```lua
+getgenv().Autoload_Pause = true -- // pauses Autoload temporarily
+```
+```lua
 getgenv().Multi_Support = true -- // Config path for multiple instances to share.
 ```
 ```lua
