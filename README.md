@@ -5,12 +5,22 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/FlamesW/wtf/main/Loader.lua"))();
 ```
 
-## Config:
-- getgenv().Auto_Show = true -- // Ui Open on load 
+## Config: (Put on top of loadstring)
+```lua
+getgenv().Auto_Show = true -- // Shows UI Open on load.
+```
+```lua
 - getgenv().Multi_Support = true -- // Config path for multiple instances to share.
+```
+```lua
 - getgenv().Compact = true -- // Force mobile variant for pc
+```
+```lua
 - getgenv().Streamer_Mode = true -- // Hides your name so viewers wont be able to see it (client).
+```
+```lua
 - getgenv().Anti_Lag = true -- // Removes textures to enhance performance.
+```
 
 ### UI Interface:
 <img width="1030" height="767" alt="image" src="https://github.com/user-attachments/assets/950f3591-242c-4711-a101-357b2b2c0faa" />
