@@ -1,6 +1,6 @@
 return {
     SupportedGames = {
-        {Game = "World Of Stands", Status = "Updating", Date = "07/02/2026"},
+        {Game = "World Of Stands", Status = "Online", Date = "28/02/2026"},
     },
 
     Changelogs = {
