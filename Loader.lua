@@ -23,7 +23,7 @@ shared.__Invite = "Enjoy:)~"; -- // "https://dsc.gg/test"
 local Players: Players = Flameware.GetService("Players")
 local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait();
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
-local InMaintenance = true
+local InMaintenance = false
 
 -- // Services
 Flameware.Services = {["VirtualUser"] = Flameware.GetService("VirtualUser"),
@@ -61,6 +61,7 @@ shared.Loader.Files = {
 -- // Anti Idle Support
 if not shared._1 then
     if Flameware.Services.Connections then
+		warn('[Flameh]: AFK Method: "Connections"');
         for _, Con in pairs(Flameware.Services.Connections(LocalPlayer.Idled)) do
             if Con.Disable then Con:Disable();
             elseif Con.Disconnect then
@@ -68,6 +69,7 @@ if not shared._1 then
             end
         end
     else
+		warn('[Flameh]: AFK Method: "VirtualInputs"');
         Anti_Idle = LocalPlayer.Idled:Connect(function()
             Flameware.Services.VirtualUser:CaptureController();
             Flameware.Services.VirtualUser:ClickButton2(Vector2.new());
