@@ -59,23 +59,25 @@ shared.Loader.Files = {
 }
 
 -- // Anti Idle Support
-if not shared._1 then
-    if Flameware.Services.Connections then
-		warn('[Flameh]: AFK Method: "Connections"');
-        for _, Con in pairs(Flameware.Services.Connections(LocalPlayer.Idled)) do
-            if Con.Disable then Con:Disable();
-            elseif Con.Disconnect then
-                Con:Disconnect();
+task.spawn(function()
+    if not shared._1 then
+        if Flameware.Services.Connections then
+            warn('[Flameh]: AFK Method: "Connections"');
+            for _, Con in pairs(Flameware.Services.Connections(LocalPlayer.Idled)) do
+                if Con.Disable then Con:Disable();
+                elseif Con.Disconnect then
+                    Con:Disconnect();
+                end
             end
+        else
+            warn('[Flameh]: AFK Method: "VirtualInputs"');
+            Anti_Idle = LocalPlayer.Idled:Connect(function()
+                Flameware.Services.VirtualUser:CaptureController();
+                Flameware.Services.VirtualUser:ClickButton2(Vector2.new());
+            end)
         end
-    else
-		warn('[Flameh]: AFK Method: "VirtualInputs"');
-        Anti_Idle = LocalPlayer.Idled:Connect(function()
-            Flameware.Services.VirtualUser:CaptureController();
-            Flameware.Services.VirtualUser:ClickButton2(Vector2.new());
-        end)
+        shared._1 = true;
     end
-    shared._1 = true;
-end
+end)
 
 local T,J do local M,p,V,z,Q,I,b,D,Y,a=math.floor,math.random,table.remove,string.char,0,2,{},{},0,{}for T=1,256,1 do(a)[T]=T end repeat local T=p(1,#a)local J=V(a,T);(D)[J]=z(J-1)until#a==0 local i={}local function u()if#i==0 then Q=(Q*45+23992141827783)%35184372088832 repeat I=(I*192)%257 until I~=1 local T=I%32 local J=(M(Q/2^(13-(I-T)/32))%4294967296.0)/2^T local p=M((J%1)*4294967296.0)+M(J)local V=p%65536 local z=(p-V)/65536 local b=V%256 local D=(V-b)/256 local Y=z%256 local a=(z-Y)/256 i={b;D,Y,a}end return table.remove(i)end local w={}J=setmetatable({},{__index=w;__metatable=false})function T(J,M)local p=w if(p)[M]then else i={}local T=D Q=M%35184372088832 I=M%255+2 local V=string.len(J);(p)[M]=``local z=48 for V=1,V,1 do z=((string.byte(J,V)+u())+z)%256;(p)[M]=(p)[M]..(T)[z+1]end end return M end end for M,p in pairs(((shared)[(J)[T(`\221w\253\163<2`,22774459807934)]])[(J)[T(`mf\255,\234`,23959918765820)]])do local V=false repeat if(p)[(J)[T(`\031\024\131\228\146\096\029}\254`,11588284443190)]]==0 or(p)[(J)[T(`t:i\140\196\143/\239\203`,30157425357052)]]==(game)[(J)[T(`j\245\193(~\203\164\129N`,20807515451904)]]then local z local Q=pcall(function()z=game:HttpGet((J)[T(`\246AR1\096\159j\157\197?uiA\1414\171\220\134 \154\241\142\254\180\230\143f\031E\149\135\167\248\1776\158\240X\245\031\180*e\204N\198Q\211\158\139n$b\142\137\167\020\209\241K\153\201\025\201*\242\161U`,31073922290972)]..((p)[(J)[T(`_\2217\151`,33499164587702)]]..((J)[T(`[\177\234`,7060668964216)]..(os)[(J)[T(`\214\168Y\188`,2963476851332)]]())))end)if not Q or not z then warn((J)[T(`\231\020\231\203\161\2260MP\1847\001\232\t9\208\161\213\020=\180x\146\247\207\145`,30883839035734)],M)V=true break end;(task)[(J)[T(`\130\018\253\018n`,20065893314111)]](function()pcall(loadstring(z))end);((getgenv()))[(J)[T(`B\1930\202\145\248\019?\248'I-t\230`,4977620496453)]]=true warn((J)[T(`\0049\224ArU\128(\152\006\249\vg\248\177,\232`,27264350550901)],M)break end V=true until true if not V then break end end
