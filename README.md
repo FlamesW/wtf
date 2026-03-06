@@ -10,17 +10,17 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FlamesW/wtf/main/Load
 getgenv().Auto_Show = false -- // Hides UI Onload.
 ```
 ```lua
-getgenv().Autoload_Pause = true -- // pauses Autoload temporarily
+getgenv().Autoload_Pause = true -- // Pauses Autoload temporarily
 ```
 ```lua
 getgenv().Multi_Support = true -- // Config path for multiple instances to share.
 ```
 ```lua
-getgenv().Compact = true -- // Force mobile variant for pc
+getgenv().Compact = true -- // Force Mobile variant for PC
 ```
 ```lua
-getgenv().Streamer_Mode = true -- // Hides your name so viewers wont be able to see it (client).
+getgenv().Streamer_Mode = true -- // Hides your name so viewers wont be able to see it (Client).
 ```
 ```lua
-getgenv().Anti_Lag = true -- // Removes textures to enhance performance.
+getgenv().Anti_Lag = true -- // Removes textures to Enhance Performance.
 ```
