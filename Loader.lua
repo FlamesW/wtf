@@ -33,7 +33,7 @@ Flameware.Services = {["VirtualUser"] = Flameware.GetService("VirtualUser"),
 
 -- // IsLoaded() yes
 if not game:IsLoaded() then
-    local Unloaded = Instance.new("Message"); Unloaded.Parent = Services.CoreGui;
+    local Unloaded = Instance.new("Message"); Unloaded.Parent = Flameware.Service.CoreGui;
 	Unloaded.Text = "Flameh is waiting for the game to load~";
 	game.Loaded:Wait(); NotLoaded:Destroy();
 end
