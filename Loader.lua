@@ -23,7 +23,7 @@ shared.__Invite = "Enjoy:)~"; -- // "https://dsc.gg/test"
 local Players: Players = Flameware.GetService("Players")
 local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait();
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
-local InMaintenance = false
+local InMaintenance = true
 
 -- // Services
 Flameware.Services = {["VirtualUser"] = Flameware.GetService("VirtualUser"),
