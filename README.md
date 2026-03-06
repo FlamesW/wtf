@@ -7,7 +7,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/FlamesW/wtf/main/Load
 
 ## Addons:
 ```lua
-getgenv().Auto_Show = true -- // Shows UI Open on load.
+getgenv().Auto_Show = false -- // Hides UI Onload.
 ```
 ```lua
 getgenv().Autoload_Pause = true -- // pauses Autoload temporarily
