@@ -54,7 +54,6 @@ end
 shared.Loader = shared.Loader or {}
 
 shared.Loader.Files = {
-    ["Basplate Game"] = { File = "BG/File.lua", CreatorId = 65587627 },
 	["World Of Stands"] = { File = "WOS/File.lua", CreatorId = 6069796 },
 	["Escape Tsunami For Brainrots"] = { File = "ETB/File.lua", CreatorId = 411609583 },
 }
