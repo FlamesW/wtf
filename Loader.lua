@@ -50,6 +50,9 @@ if Library and Library.InstanceExist and Library:InstanceExist() then
     return
 end
 
+-- // First Timer
+-- if not isfolder("FlamehFolder") then print("Is this your first time?"); end
+
 -- // Files
 shared.Loader = shared.Loader or {}
 
