@@ -55,7 +55,7 @@ shared.Loader = shared.Loader or {}
 
 shared.Loader.Files = {
 	["World Of Stands"] = { File = "WOS/File.lua", CreatorId = 6069796 },
-	["Escape Tsunami For Brainrots"] = { File = "ETB/File.lua", CreatorId = 411609583 },
+	["Swordflare RPG"] = { File = "SFR/File.lua", CreatorId = 477713117 },
 }
 
 -- // Anti Idle Support
