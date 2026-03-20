@@ -65,7 +65,7 @@ shared.Loader.Files = {
 task.spawn(function()
     if not shared._1 then
         if Flameware.Services.Connections then
-            warn('[Flameh]: AFK Method: "Connections"');
+            -- warn('[Flameh]: AFK Method: "Connections"');
             for _, Con in pairs(Flameware.Services.Connections(LocalPlayer.Idled)) do
                 if Con.Disable then Con:Disable();
                 elseif Con.Disconnect then
@@ -73,7 +73,7 @@ task.spawn(function()
                 end
             end
         else
-            warn('[Flameh]: AFK Method: "VirtualInputs"');
+            -- warn('[Flameh]: AFK Method: "VirtualInputs"');
             Anti_Idle = LocalPlayer.Idled:Connect(function()
                 Flameware.Services.VirtualUser:CaptureController();
                 Flameware.Services.VirtualUser:ClickButton2(Vector2.new());
