@@ -11,13 +11,13 @@ local Flameware = { GetService = function(service)
 	return cloneref and cloneref(game:GetService(service)) or game:GetService(service)
 end}
 
-getgenv().CopyrightHolder = "FlamesW©";
-shared.Flameh_Icon = "rbxassetid://129855843582244";
+getgenv().CopyrightHolder = getgenv().CopyrightHolder or "FlamesW©";
+shared.Flameh_Icon = shared.Flameh_Icon or "rbxassetid://129855843582244";
 shared.IntroSounds = {
     "rbxassetid://00000",
 }
 
-shared.__Invite = "Enjoy:)~"; -- // "https://dsc.gg/test"
+shared.__Invite = shared.__Invite or "Enjoy:)~"; -- // "https://dsc.gg/test"
 
  -- // Variables
 local Players: Players = Flameware.GetService("Players")
