@@ -25,9 +25,15 @@ local LocalPlayer = Players.LocalPlayer or Players.PlayerAdded:Wait();
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait();
 local InMaintenance = false
 
+-- // Condom Protection
+local ProtectGUI = protectgui or (syn and syn.protect_gui) or function() end
+
 -- // Services
-Flameware.Services = {["VirtualUser"] = Flameware.GetService("VirtualUser"),
+Flameware.Services = {
+	["VirtualUser"] = Flameware.GetService("VirtualUser"),
 	["CoreGui"] = Flameware.GetService("CoreGui"),
+	["Lighting"] = Flameware.GetService("Lighting"),
+	["Tweening"] = Flameware.GetService("TweenService"),
 	["Connections"] = getconnections or get_signal_cons
 }
 
@@ -51,7 +57,126 @@ if Library and Library.InstanceExist and Library:InstanceExist() then
 end
 
 -- // First Timer
--- if not isfolder("FlamehFolder") then print("Is this your first time?"); end
+if not isfolder("FlamehFolder") then warn("Is this your first time?"); end
+
+local SweetThings = {
+	"Caramel :3",
+	"Ice Cream :3",
+	"Bobba Tea :3",
+	"Yogurt :3",
+	"Waffle :3",
+	"Honey :3",
+	"Chocolate :3",
+	"Strawberry :3",
+	"Vanilla :3",
+	"Cupcake :3",
+	"Donut :3",
+	"Cookie :3",
+	"Pudding :3",
+	"Mochi :3",
+	"Milkshake :3",
+	"Smoothie :3",
+	"Candy :3",
+	"Marshmallow :3",
+	"Cinnamon Bun :3",
+	"Apple Pie :3",
+	"Cheesecake :3",
+	"Brownie :3",
+	"Lollipop :3",
+	"Gummy Bear :3",
+	"Macaron :3"
+}
+
+local LoaderUI = function()	
+	local Blur = Instance.new("BlurEffect")
+	Blur.Size = 0
+	Blur.Parent = Flameware.Services.Lighting
+
+	local Loader = Instance.new("ScreenGui")
+	Loader.Name = "@%#*^)*%@#%*!@^%$%&@#$~"
+	local Success, Parent = pcall(function()
+		return gethui()
+	end)
+
+	if Success and Parent then
+		Loader.Parent = Parent
+	else
+		Loader.Parent = Flameware.Services.CoreGui
+	end
+
+	ProtectGUI(Loader)
+	local Frame = Instance.new("Frame")
+	Frame.Size = UDim2.new(0, 320, 0, 90)
+	Frame.Position = UDim2.new(0.5, -160, 0.5, -45)
+	Frame.BackgroundColor3 = Color3.fromRGB(8, 8, 12)
+	Frame.BackgroundTransparency = 0.25
+	Frame.BorderSizePixel = 0
+	Frame.Parent = Loader
+
+	local UICorner = Instance.new("UICorner")
+	UICorner.CornerRadius = UDim.new(0, 12)
+	UICorner.Parent = Frame
+
+	local UIStroke = Instance.new("UIStroke")
+	UIStroke.Color = Color3.fromRGB(79, 79, 79)
+	UIStroke.Thickness = 2
+	UIStroke.Transparency = 0.25
+	UIStroke.Parent = Frame
+
+	local TextLabel = Instance.new("TextLabel")
+	TextLabel.Size = UDim2.new(0, 200, 0, 55)
+	TextLabel.Position = UDim2.new(0, 75, 0.5, -27.5)
+	TextLabel.BackgroundTransparency = 1
+
+	local RandomIndex = math.random(1, #SweetThings)
+	local Speech = SweetThings[RandomIndex]
+	TextLabel.Text = Speech
+	TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextLabel.TextScaled = true
+	TextLabel.Font = Enum.Font.GothamBlack
+	TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+	TextLabel.Parent = Frame
+
+	local UIGradient = Instance.new("UIGradient")
+	UIGradient.Color = ColorSequence.new({
+		ColorSequenceKeypoint.new(0, Color3.fromRGB(180, 180, 190)),
+		ColorSequenceKeypoint.new(0.4, Color3.fromRGB(255, 255, 255)),
+		ColorSequenceKeypoint.new(0.6, Color3.fromRGB(255, 255, 255)),
+		ColorSequenceKeypoint.new(1, Color3.fromRGB(190, 190, 200))
+	})
+	UIGradient.Rotation = 60
+	UIGradient.Parent = TextLabel
+
+	local BlurTween = Flameware.Services.Tweening:Create(Blur, TweenInfo.new(0.5, Enum.EasingStyle.Quad), { Size = 25 })
+	local PopTween = Flameware.Services.Tweening:Create(Frame, TweenInfo.new(0.5, Enum.EasingStyle.Elastic, Enum.EasingDirection.Out), {
+		Size = UDim2.new(0, 340, 0, 100),
+		Position = UDim2.new(0.5, -170, 0.5, -50)
+	})
+
+	BlurTween:Play()
+	PopTween:Play()
+
+	local StartTime = tick()
+	local Timeout = 10
+	
+	repeat
+		task.wait(0.45)
+		if tick() - StartTime >= Timeout then
+			break
+		end
+	until Library and Library.InstanceExist and Library:InstanceExist()
+
+	local ReturnBlur = Flameware.Services.Tweening:Create(Blur, TweenInfo.new(0.8, Enum.EasingStyle.Quad), { Size = 0 })
+	local Disappear = Flameware.Services.Tweening:Create(Frame, TweenInfo.new(0.4, Enum.EasingStyle.Quad), { BackgroundTransparency = 1 })
+
+	ReturnBlur:Play()
+	Disappear:Play()
+
+	task.wait(0.12)
+	Loader:Destroy()
+end
+
+task.spawn(LoaderUI)
 
 -- // Files
 shared.Loader = shared.Loader or {}
