@@ -19,7 +19,7 @@ local Files = {
 }
 
 -- // @Maintenance
-local In_Maintenance = false;
+local In_Maintenance = true;
 
 -- // @Flameh_Engine.luau
 shared.Function_Manager = "https://raw.githubusercontent.com/FlamesW/FunctionManager/refs/heads/home/Module.luau";
